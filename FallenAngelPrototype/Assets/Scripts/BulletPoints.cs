@@ -75,6 +75,7 @@ public class BulletPoints : MonoBehaviour
             {
                 if (canchangeSelect == true)
                 {
+                    mainManager.PlaySound(11,0.1f);
 					if(Input.GetAxisRaw("Vertical") > 0){
                     curSelected -= Mathf.CeilToInt(Input.GetAxisRaw("Vertical"));
 					} else {

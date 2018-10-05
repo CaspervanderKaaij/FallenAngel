@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(values[curWave - 1].spawnWaitTime);
         RealSpawn();
-        mainManager.PlaySound(0,0);
+        mainManager.PlaySound(15,0);
     }
 
     void RealSpawn()

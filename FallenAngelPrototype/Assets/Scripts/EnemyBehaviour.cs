@@ -24,14 +24,16 @@ public class EnemyBehaviour : MonoBehaviour
 	public float speed = 50;
     [HideInInspector]
     public bool canAttack = false;
+    MainManager mainManager;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (type == EnemyType.Sniper)
         {
-            InvokeRepeating("Shoot", fireRate, fireRate);
+            InvokeRepeating("Shoot", fireRate * Random.Range(0.7f,1.3f), fireRate);
         }
+        mainManager = FindObjectOfType<MainManager>();
     }
 
     void Update()
@@ -77,5 +79,6 @@ public class EnemyBehaviour : MonoBehaviour
     void Shoot()
     {
         Instantiate(sniperProjectile, transform.position, transform.rotation);
+        mainManager.PlaySound(16,0);
     }
 }

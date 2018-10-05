@@ -13,6 +13,7 @@ public class Music : MonoBehaviour
     void Start()
     {
         source = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()

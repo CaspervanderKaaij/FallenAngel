@@ -29,7 +29,7 @@ public class MainManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             paused = !paused;
-            PlaySound(11,0.1f);
+            PlaySound(14,0.3f);
             if(paused == true){
                 Camera.main.GetComponent<PostProcessingBehaviour>().profile.depthOfField.enabled = true;
             } else {

@@ -11,6 +11,7 @@ public class PlayerFollow : MonoBehaviour
     PlayerHealth health;
     float distance = 10;
     Cam cam;
+    MainManager mainManager;
     public float outOfRangeDamage = 10f;
 
     void Start()
@@ -19,6 +20,7 @@ public class PlayerFollow : MonoBehaviour
         particle = followParticleRing.GetComponent<ParticleSystem>();
         distance = particle.shape.radius;
         cam = Camera.main.GetComponent<Cam>();
+        mainManager = FindObjectOfType<MainManager>();
     }
 
     void Update()
@@ -28,6 +30,7 @@ public class PlayerFollow : MonoBehaviour
         if (Vector3.Distance(transform.position, followNPC.position) > distance)
         {
             transform.position = followNPC.position;
+            mainManager.PlaySound(0,0);
         }
     }
 }
