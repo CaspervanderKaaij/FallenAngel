@@ -14,7 +14,7 @@ public class Cam : MonoBehaviour
     float shakeStr = 2;
     Vector3 lastPos;
     MainManager mainManager;
-    bool hasChangedMusic = false;
+    //bool hasChangedMusic = false;
 
     void Start()
     {
@@ -31,17 +31,17 @@ public class Cam : MonoBehaviour
         pivot.position = Vector3.Lerp(player.position, followed.position, 0.5f);
         if (FindObjectOfType<EnemySpawner>() == null && FindObjectOfType<EnemyBehaviour>() == null)
         {
-            if(hasChangedMusic == false){
-             FindObjectOfType<Music>().ChangeMusic(0,true);
-             hasChangedMusic = true;
-            }
+          //  if(hasChangedMusic == false){
+            // FindObjectOfType<Music>().ChangeMusic(0,true);
+           //  hasChangedMusic = true;
+          //  }
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, Vector3.Distance(player.position, followed.position) + 20, Time.deltaTime * 10);
             cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30, 70);
         }
         else
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 80, Time.deltaTime * 10);
-            hasChangedMusic = false;
+          //  hasChangedMusic = false;
         }
 
         if (shaking == true)
