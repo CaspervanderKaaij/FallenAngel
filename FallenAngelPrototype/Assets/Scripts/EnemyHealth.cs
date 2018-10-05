@@ -6,9 +6,10 @@ public class EnemyHealth : MonoBehaviour {
 
 public int curHealth = 2;
 public GameObject deathParticle;
+MainManager mainManager;
 
 	void Start () {
-		
+		mainManager = FindObjectOfType<MainManager>();
 	}
 	
 	void Update () {
@@ -20,6 +21,7 @@ public GameObject deathParticle;
 	void Die(){
 		Instantiate(deathParticle,transform.position,Quaternion.identity);
 		Destroy(gameObject);
+		mainManager.PlaySound(4,0.6f);
 	}
 
 	public void GetHit(int dmg){

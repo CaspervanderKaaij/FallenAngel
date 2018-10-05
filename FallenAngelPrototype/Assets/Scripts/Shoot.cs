@@ -62,6 +62,7 @@ public class Shoot : MonoBehaviour
 
     void SpawnBullet()
     {
+        mainManager.PlaySound(5,0);
         Instantiate(toSpawn, transform.position, transform.rotation);
     }
 

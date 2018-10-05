@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65822691246705946}
   - component: {fileID: 114171310727545504}
   - component: {fileID: 114345201281055890}
+  - component: {fileID: 114027292034680558}
   m_Layer: 9
   m_Name: EnemySniper
   m_TagString: Enemy
@@ -129,6 +130,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114027292034680558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731263117172862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd89710d1a15ba340acf48b5a1218e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114171310727545504
 MonoBehaviour:
   m_ObjectHideFlags: 1

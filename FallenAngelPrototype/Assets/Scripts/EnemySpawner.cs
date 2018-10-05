@@ -10,16 +10,21 @@ public class EnemySpawner : MonoBehaviour
     public int curWave = 0;
     Transform player;
     public GameObject spawnParticle;
+    public int music = 1;
+    MainManager mainManager;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 		RealSpawn();
+        FindObjectOfType<Music>().ChangeMusic(music,false);
+        mainManager = FindObjectOfType<MainManager>();
     }
 
     IEnumerator Spawn()
     {
         yield return new WaitForSeconds(values[curWave - 1].spawnWaitTime);
         RealSpawn();
+        mainManager.PlaySound(0,0);
     }
 
     void RealSpawn()
