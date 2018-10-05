@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 2
+  deathParticle: {fileID: 1857996931596200, guid: cf802cfdf81657e479e24b5c0b23cfc4,
+    type: 2}
 --- !u!114 &114345201281055890
 MonoBehaviour:
   m_ObjectHideFlags: 1

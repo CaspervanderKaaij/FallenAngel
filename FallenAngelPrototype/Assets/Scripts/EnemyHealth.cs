@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
 public int curHealth = 2;
+public GameObject deathParticle;
 
 	void Start () {
 		
@@ -17,10 +18,12 @@ public int curHealth = 2;
 	}
 
 	void Die(){
+		Instantiate(deathParticle,transform.position,Quaternion.identity);
 		Destroy(gameObject);
 	}
 
 	public void GetHit(int dmg){
 		curHealth -= dmg;
+		FindObjectOfType<Cam>().StartShake(0.2f,0.5f);
 	}
 }

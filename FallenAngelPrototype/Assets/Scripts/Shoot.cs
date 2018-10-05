@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     public GameObject toSpawn;
     public Transform player;
     bool hasController = false;
+    public float attackRate = 0.2f;
 
     void Update()
     {
@@ -16,7 +17,10 @@ public class Shoot : MonoBehaviour
         transform.position = player.position;
         if (Input.GetButtonDown("Fire1") == true)
         {
-            SpawnBullet();
+            InvokeRepeating("SpawnBullet",0,attackRate);
+        }
+        if(Input.GetButtonUp("Fire1") == true){
+            CancelInvoke("SpawnBullet");
         }
     }
 
