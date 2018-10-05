@@ -151,6 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0972718d3504d94aaed1963ead42dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0, z: 100}
+  pos: {x: 0, y: 0, z: 50}
   angle: {x: 0, y: 0, z: 0}
   scale: {x: 0, y: 0, z: 0}

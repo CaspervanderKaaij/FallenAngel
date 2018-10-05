@@ -22,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float attackRate = 0.5f;
     public int damage = 20;
 	public float speed = 50;
+    [HideInInspector]
+    public bool canAttack = false;
 
     void Start()
     {
@@ -63,10 +65,12 @@ public class EnemyBehaviour : MonoBehaviour
             CancelInvoke("MeleeAttack");
             transform.LookAt(player.position);
             transform.position += transform.forward * speed * Time.deltaTime;
+            canAttack = false;
         }
         else if(IsInvoking("MeleeAttack") == false)
         {
             InvokeRepeating("MeleeAttack", attackRate, attackRate);
+            canAttack = true;
         }
     }
 

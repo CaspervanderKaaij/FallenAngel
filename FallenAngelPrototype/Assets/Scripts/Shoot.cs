@@ -9,22 +9,41 @@ public class Shoot : MonoBehaviour
     public Transform player;
     bool hasController = false;
     public float attackRate = 0.2f;
+    public PlayerSprite sprite;
+    MainManager mainManager;
+
+    void Start()
+    {
+        mainManager = FindObjectOfType<MainManager>();
+    }
 
     void Update()
     {
-        hasController = false;
-        CheckController();
-        transform.position = player.position;
-        if (Input.GetButtonDown("Fire1") == true)
+        if (mainManager.paused == false)
         {
-            InvokeRepeating("SpawnBullet",0,attackRate);
-        }
-        if(Input.GetButtonUp("Fire1") == true){
+            hasController = false;
+            CheckController();
+            transform.position = player.position;
+            SetAngle();
+            if (Input.GetButtonDown("Fire1") == true)
+            {
+                InvokeRepeating("SpawnBullet", 0, attackRate);
+                if (sprite != null)
+                {
+                    sprite.shooting = true;
+                }
+            }
+            if (Input.GetButtonUp("Fire1") == true)
+            {
+                CancelInvoke("SpawnBullet");
+                sprite.shooting = false;
+            }
+        } else {
             CancelInvoke("SpawnBullet");
         }
     }
 
-    void SpawnBullet()
+    void SetAngle()
     {
         if (hasController == false)
         {
@@ -39,9 +58,10 @@ public class Shoot : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, Mathf.Atan2(Input.GetAxis("CamHor"), Input.GetAxis("CamVert")) * Mathf.Rad2Deg, 0);
         }
+    }
 
-
-
+    void SpawnBullet()
+    {
         Instantiate(toSpawn, transform.position, transform.rotation);
     }
 

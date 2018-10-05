@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterSprite : MonoBehaviour {
-
-Vector3 startAngle;
+[HideInInspector]
+public Vector3 startAngle;
 	void Start () {
 		startAngle = transform.eulerAngles;
 	}
@@ -13,7 +13,7 @@ Vector3 startAngle;
 		SetAngle();
 	}
 
-	void SetAngle(){
+	public void SetAngle(){
 		transform.eulerAngles = startAngle;
 	}
 }

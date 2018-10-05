@@ -13,12 +13,14 @@ public class Cam : MonoBehaviour
     public bool shaking = false;
     float shakeStr = 2;
     Vector3 lastPos;
+    MainManager mainManager;
 
     void Start()
     {
         cam = transform.GetComponent<Camera>();
         posRelativeToPivot = transform.position - pivot.position;
         lastPos = transform.position;
+        mainManager = FindObjectOfType<MainManager>();
     }
 
     void Update()
@@ -38,27 +40,32 @@ public class Cam : MonoBehaviour
 
         if (shaking == true)
         {
-            lastPos = transform.position;
-            transform.position += new Vector3(Random.Range(-shakeStr, shakeStr), Random.Range(-shakeStr, shakeStr), Random.Range(-shakeStr, shakeStr));
+            if (mainManager.paused == false)
+            {
+                lastPos = transform.position;
+                transform.position += new Vector3(Random.Range(-shakeStr, shakeStr), Random.Range(-shakeStr, shakeStr), Random.Range(-shakeStr, shakeStr));
+            }
         }
         else
         {
             lastPos = transform.position;
         }
 
-	//	if(Input.GetButtonDown("Fire1") == true){
-	//		StartShake(0.2f,0.5f);
-	//	}
+        //	if(Input.GetButtonDown("Fire1") == true){
+        //		StartShake(0.2f,0.5f);
+        //	}
     }
 
-	public void StartShake(float shakeTime,float strength){
-		CancelInvoke("StopShake");
-		Invoke("StopShake",shakeTime);
-		shaking = true;
-		shakeStr = strength;
-	}
+    public void StartShake(float shakeTime, float strength)
+    {
+        CancelInvoke("StopShake");
+        Invoke("StopShake", shakeTime);
+        shaking = true;
+        shakeStr = strength;
+    }
 
-	void StopShake(){
-		shaking = false;
-	}
+    void StopShake()
+    {
+        shaking = false;
+    }
 }
