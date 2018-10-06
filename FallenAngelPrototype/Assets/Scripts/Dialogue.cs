@@ -8,11 +8,12 @@ using UnityEditor;
 public class Dialogue : MonoBehaviour
 {
 
-    public string[] dialogue;
-    public float[] newTextTime;
+    public List<string> dialogue;
+    public List<float> newTextTime;
     public float curTime;
     public int curText;
     Text txt;
+    public GameObject uiBack;
 
     void Start()
     {
@@ -30,13 +31,18 @@ public class Dialogue : MonoBehaviour
         {
             curTime += Time.deltaTime;
         }
+        if(txt.text == ""){
+            uiBack.SetActive(false);
+        } else {
+            uiBack.SetActive(true);
+        }
     }
 
     void SetDia()
     {
         for (int i = 0; i < 1; i++)
         {
-            if (curText <= newTextTime.Length - 1)
+            if (curText <= newTextTime.Count - 1)
             {
                 if (curTime > newTextTime[curText])
                 {
@@ -46,7 +52,7 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
-                curText = newTextTime.Length;
+                curText = newTextTime.Count;
             }
 
             if (curTime >= newTextTime[0])
@@ -59,5 +65,14 @@ public class Dialogue : MonoBehaviour
             }
         }
         txt.text = dialogue[curText - 1];
+    }
+
+    public void NewDia(string[] newText,float[] textTime){
+        curText = 1;
+        curTime = 0;
+        dialogue.Clear();
+        dialogue.AddRange(newText);
+        newTextTime.Clear();
+        newTextTime.AddRange(textTime);
     }
 }

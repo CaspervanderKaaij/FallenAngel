@@ -15,8 +15,12 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-		RealSpawn();
-        FindObjectOfType<Music>().ChangeMusic(music,false);
+        RealSpawn();
+        if (FindObjectOfType<Music>() != null)
+        {
+            FindObjectOfType<Music>().ChangeMusic(music, false);
+            //FindObjectOfType<Music>().GetComponent<AudioSource>().time = 0;
+        }
         mainManager = FindObjectOfType<MainManager>();
     }
 
@@ -24,16 +28,16 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(values[curWave - 1].spawnWaitTime);
         RealSpawn();
-        mainManager.PlaySound(15,0);
+        mainManager.PlaySound(15, 0);
     }
 
     void RealSpawn()
     {
         for (int i = 0; i < values[curWave].toSpawn.Length; i++)
         {
-            Vector3 random = new Vector3(Random.Range(-30,30), 0, Random.Range(30,90));
+            Vector3 random = new Vector3(Random.Range(-30, 30), 0, Random.Range(30, 90));
             Instantiate(enemyPrefabs[values[curWave].toSpawn[i]], player.position + random, Quaternion.identity);
-            Instantiate(spawnParticle,player.position + random,Quaternion.identity);
+            Instantiate(spawnParticle, player.position + random, Quaternion.identity);
         }
         if (curWave < values.Length - 1)
         {

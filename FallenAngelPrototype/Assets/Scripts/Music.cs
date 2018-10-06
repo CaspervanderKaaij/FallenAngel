@@ -26,6 +26,7 @@ public class Music : MonoBehaviour
     {
         source.Stop();
         source.clip = clips[newClip];
+        source.time = 0;
         source.Play();
         if (fadeIn == true)
         {

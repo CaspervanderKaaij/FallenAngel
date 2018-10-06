@@ -15,7 +15,7 @@ public class MainManager : MonoBehaviour
 
     void Start()
     {
-
+        Camera.main.GetComponent<PostProcessingBehaviour>().profile.depthOfField.enabled = false;
     }
 
     void Update()
