@@ -11,8 +11,11 @@ public class EventSpawner : MonoBehaviour
     int toSpawn = 0;
     void Start()
     {
-        toSpawn = GetTimeAndPlace();
-        Spawn();
+        if (FindObjectOfType<TimeManager>() != null)
+        {
+            toSpawn = GetTimeAndPlace();
+            Spawn();
+        }
     }
 
     int GetTimeAndPlace()

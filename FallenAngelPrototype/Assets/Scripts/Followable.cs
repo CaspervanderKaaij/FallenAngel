@@ -10,6 +10,7 @@ public class Followable : MonoBehaviour
     public float range = 10;
     public GameObject ui;
     MainManager mainManager;
+    public string characterName = "NoName";
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class Followable : MonoBehaviour
                     {
                         mainManager.PlaySound(0,0);
                         playerFollow.followNPC = transform;
+                        PlayerPrefs.SetString("follow",characterName);
                     }
                 }
             }

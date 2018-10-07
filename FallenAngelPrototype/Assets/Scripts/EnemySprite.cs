@@ -15,12 +15,16 @@ public class EnemySprite : CharacterSprite
         Right
     }
     public Direction dir;
+    Animator anim;
+    SpriteRenderer sprite;
 
     void Start()
     {
         startAngle = transform.eulerAngles;
 		behaviour = transform.parent.GetComponent<EnemyBehaviour>();
         type = behaviour.type;
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -42,6 +46,22 @@ public class EnemySprite : CharacterSprite
 		if(behaviour.canAttack == true){
 			//set anim here
 		}
+
+        if(dir == Direction.Up || dir == Direction.Right){
+            anim.Play("MeleeEnemyBackward");
+            if(dir == Direction.Right){
+                sprite.flipX = true;
+            } else {
+                sprite.flipX = false;
+            }
+        } else {
+            anim.Play("MeleeEnemyForward");
+            if(dir == Direction.Left){
+                sprite.flipX = true;
+            } else {
+                sprite.flipX = false;
+            }
+        }
     }
 
     void SniperStuff()
@@ -52,7 +72,9 @@ public class EnemySprite : CharacterSprite
 	void CheckDir()
     {
 		//yeah I copied, I have a lot to do ok. Here is where I got it from https://answers.unity.com/questions/523915/compass-directions-n-e-s-w.html
+        transform.parent.eulerAngles += new Vector3(0,45,0);
         Vector3 v = transform.parent.forward;
+        transform.parent.eulerAngles -= new Vector3(0,45,0);
         v.y = 0;
         v.Normalize();
 

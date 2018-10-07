@@ -109,6 +109,27 @@ public class EventBase : MonoBehaviour
         }
     }
 
+    public void SetDayTime(){
+        if(FindObjectOfType<TimeManager>() != null){
+            TimeManager timeManager = FindObjectOfType<TimeManager>();
+            switch (timeManager.timeOfDay)
+            {
+                case TimeManager.TimeOfDay.Morning:
+                timeManager.timeOfDay = TimeManager.TimeOfDay.Afternoon;
+                break;
+                case TimeManager.TimeOfDay.Afternoon:
+                timeManager.timeOfDay = TimeManager.TimeOfDay.Evening;
+                break;
+                case TimeManager.TimeOfDay.Evening:
+                timeManager.timeOfDay = TimeManager.TimeOfDay.Night;
+                break;
+                case TimeManager.TimeOfDay.Night:
+                timeManager.timeOfDay = TimeManager.TimeOfDay.Morning;
+                break;
+            }
+        }
+    }
+
     public void UnlockBulletPoint(int number)
     {
         FindObjectOfType<BulletPoints>().unlocked[number] = true;

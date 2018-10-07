@@ -9,8 +9,9 @@ public class Shoot : MonoBehaviour
     public Transform player;
     bool hasController = false;
     public float attackRate = 0.2f;
-    public PlayerSprite sprite;
+   // public PlayerSprite sprite;
     MainManager mainManager;
+    public Transform spawnPos;
 
     void Start()
     {
@@ -28,15 +29,15 @@ public class Shoot : MonoBehaviour
             if (Input.GetButtonDown("Fire1") == true)
             {
                 InvokeRepeating("SpawnBullet", 0, attackRate);
-                if (sprite != null)
-                {
-                    sprite.shooting = true;
-                }
+               // if (sprite != null)
+           //     {
+                  //  sprite.shooting = true;
+              //  }
             }
             if (Input.GetButtonUp("Fire1") == true)
             {
                 CancelInvoke("SpawnBullet");
-                sprite.shooting = false;
+                //sprite.shooting = false;
             }
         } else {
             CancelInvoke("SpawnBullet");
@@ -63,7 +64,7 @@ public class Shoot : MonoBehaviour
     void SpawnBullet()
     {
         mainManager.PlaySound(5,0);
-        Instantiate(toSpawn, transform.position, transform.rotation);
+        Instantiate(toSpawn, spawnPos.position, transform.rotation);
     }
 
     void CheckController()

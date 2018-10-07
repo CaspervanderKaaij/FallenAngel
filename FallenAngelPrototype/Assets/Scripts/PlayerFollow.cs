@@ -24,6 +24,22 @@ public class PlayerFollow : MonoBehaviour
         distance = particle.shape.radius;
         cam = Camera.main.GetComponent<Cam>();
         mainManager = FindObjectOfType<MainManager>();
+        StartNPC();
+    }
+
+    void StartNPC()
+    {
+        if (PlayerPrefs.GetString("follow") != null)
+        {
+            Followable[] npcs = FindObjectsOfType<Followable>();
+            for (int i = 0; i < npcs.Length; i++)
+            {
+                if (npcs[i].characterName == PlayerPrefs.GetString("follow"))
+                {
+                    followNPC = npcs[i].transform;
+                }
+            }
+        }
     }
 
     void Update()
