@@ -9,11 +9,13 @@ public class Followable : MonoBehaviour
     PlayerFollow playerFollow;
     public float range = 10;
     public GameObject ui;
+    MainManager mainManager;
 
     void Start()
     {
         player = FindObjectOfType<PlayerFollow>().transform;
         playerFollow = FindObjectOfType<PlayerFollow>();
+        mainManager = FindObjectOfType<MainManager>();
     }
 
     void Update()
@@ -29,6 +31,7 @@ public class Followable : MonoBehaviour
                     ui.SetActive(true);
                     if (Input.GetButtonDown("Fire2") == true)
                     {
+                        mainManager.PlaySound(0,0);
                         playerFollow.followNPC = transform;
                     }
                 }

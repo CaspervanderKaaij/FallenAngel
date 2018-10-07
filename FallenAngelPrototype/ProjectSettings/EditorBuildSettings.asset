@@ -11,4 +11,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/TreeScene.unity
+    guid: 59537b3c1b5c3ec4dab4b4c77abb3eaa
+  - enabled: 1
+    path: Assets/Scenes/Bar.unity
+    guid: 843f06522c3b55d418d1ab5199a5a32f
+  - enabled: 1
+    path: Assets/Scenes/NorthTown.unity
+    guid: 0e6a42d3b8aad314094f21db05fbffb8
+  - enabled: 1
+    path: Assets/Scenes/EastTown.unity
+    guid: 3d52051e0af3d5a41b35f860ff029658
+  - enabled: 1
+    path: Assets/Scenes/SouthTown.unity
+    guid: b01aa897bfaed494c9f8e23ad9520cd4
+  - enabled: 1
+    path: Assets/Scenes/WestTown.unity
+    guid: 4c90ab0c8ae073940a3a185174e25725
   m_configObjects: {}
