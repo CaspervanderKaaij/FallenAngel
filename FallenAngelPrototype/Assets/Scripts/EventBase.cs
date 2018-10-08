@@ -44,7 +44,7 @@ public class EventBase : MonoBehaviour
 
     IEnumerator EventTimer()
     {
-        SetDialogue(diaValues.text, diaValues.times);
+        SetDialogue(diaValues.text, diaValues.times,diaValues.talker);
         yield return new WaitForSeconds(0.01f);
         yield return new WaitForSeconds(3);
         SetNPCPath(0, 0, 10);
@@ -69,9 +69,9 @@ public class EventBase : MonoBehaviour
         }
         npcs.AddRange(GameObject.FindGameObjectsWithTag("NPC"));
     }
-    public void SetDialogue(string[] newDia, float[] newTime)
+    public void SetDialogue(string[] newDia, float[] newTime,int[] talkers)
     {
-        dia.NewDia(newDia, newTime);
+        dia.NewDia(newDia, newTime,talkers);
     }
 
     public void SetNPCPath(int npc, int pathNumber, float speed)
@@ -142,4 +142,5 @@ public class DiaValues
 {
     public string[] text;
     public float[] times;
+    public int[] talker;
 }

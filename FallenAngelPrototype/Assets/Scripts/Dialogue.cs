@@ -14,6 +14,8 @@ public class Dialogue : MonoBehaviour
     public int curText;
     Text txt;
     public GameObject uiBack;
+    public DiaTalker diaTalker;
+    public List<int> talker;
 
     void Start()
     {
@@ -64,15 +66,18 @@ public class Dialogue : MonoBehaviour
                 }
             }
         }
+        diaTalker.curTalker = talker[curText - 1];
         txt.text = dialogue[curText - 1];
     }
 
-    public void NewDia(string[] newText,float[] textTime){
+    public void NewDia(string[] newText,float[] textTime,int[] talkers){
         curText = 1;
         curTime = 0;
         dialogue.Clear();
         dialogue.AddRange(newText);
         newTextTime.Clear();
         newTextTime.AddRange(textTime);
+        talker.Clear();
+        talker.AddRange(talkers);
     }
 }

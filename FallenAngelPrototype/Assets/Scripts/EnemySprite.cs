@@ -67,6 +67,22 @@ public class EnemySprite : CharacterSprite
     void SniperStuff()
     {
 		CheckDir();
+
+         if(dir == Direction.Up || dir == Direction.Right){
+            anim.Play("RangedEnemyBackward");
+            if(dir == Direction.Right){
+                sprite.flipX = true;
+            } else {
+                sprite.flipX = false;
+            }
+        } else {
+            anim.Play("RangedEnemyForward");
+            if(dir == Direction.Left){
+                sprite.flipX = true;
+            } else {
+                sprite.flipX = false;
+            }
+        }
     }
 
 	void CheckDir()
