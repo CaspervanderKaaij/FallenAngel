@@ -70,7 +70,7 @@ public class Dialogue : MonoBehaviour
         txt.text = dialogue[curText - 1];
     }
 
-    public void NewDia(string[] newText,float[] textTime,int[] talkers){
+    public void NewDia(List <string> newText,List <float> textTime,List <int> talkers){
         curText = 1;
         curTime = 0;
         dialogue.Clear();

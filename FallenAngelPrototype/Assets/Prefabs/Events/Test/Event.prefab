@@ -73,5 +73,5 @@ MonoBehaviour:
     - 19
     talker: 00000000000000000000000000000000010000000200000000000000
   enemySpawner:
-  - {fileID: 0}
+  - {fileID: 1304762020252026, guid: 52b4eee4fb3fa0f489ca2a2fdf7a61db, type: 2}
   startCondition: 0

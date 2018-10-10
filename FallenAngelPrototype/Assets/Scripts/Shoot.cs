@@ -9,10 +9,12 @@ public class Shoot : MonoBehaviour
     public Transform player;
     bool hasController = false;
     public float attackRate = 0.2f;
-   // public PlayerSprite sprite;
     MainManager mainManager;
     public Transform spawnPos;
-
+    public bool reflecting = false;
+    public GameObject reflectParticle;
+    public GameObject reflectCol;
+    bool canReflect = true;
     void Start()
     {
         mainManager = FindObjectOfType<MainManager>();
@@ -22,26 +24,63 @@ public class Shoot : MonoBehaviour
     {
         if (mainManager.paused == false)
         {
-            hasController = false;
-            CheckController();
-            transform.position = player.position;
-            SetAngle();
-            if (Input.GetButtonDown("Fire1") == true)
+            if (reflecting == false)
             {
-                InvokeRepeating("SpawnBullet", 0, attackRate);
-               // if (sprite != null)
-           //     {
-                  //  sprite.shooting = true;
-              //  }
+                ShootStuff();
             }
-            if (Input.GetButtonUp("Fire1") == true)
+            else
             {
                 CancelInvoke("SpawnBullet");
-                //sprite.shooting = false;
+                reflectCol.SetActive(true);
+                transform.position = player.position;
             }
-        } else {
+        }
+        else
+        {
             CancelInvoke("SpawnBullet");
         }
+    }
+
+    void StopReflect(){
+        reflecting = false;
+    }
+
+    void SetCanReflect(){
+        canReflect = true;
+    }
+
+    void ShootStuff()
+    {
+
+        if(Input.GetButtonDown("Fire3") == true){
+            if(canReflect == true){
+            Instantiate(reflectParticle,transform.position,Quaternion.identity,transform);
+            mainManager.PlaySound(3,0);
+            mainManager.PlaySound(4,0.75f);
+            FindObjectOfType<Cam>().StartShake(0.3f,0.6f);
+            reflecting = true;
+            Invoke("StopReflect",0.3f);
+            Invoke("SetCanReflect",0.31f);
+            FindObjectOfType<PlayerHealth>().curHealth = 25;
+            canReflect = false;
+            }
+        }
+        reflectCol.SetActive(false);
+
+        hasController = false;
+        CheckController();
+        transform.position = player.position;
+        SetAngle();
+        if (Input.GetButtonDown("Fire1") == true)
+        {
+            FindObjectOfType<Cam>().StartShake(0.1f,0.2f);
+            InvokeRepeating("SpawnBullet", 0, attackRate);
+        }
+        if (Input.GetButtonUp("Fire1") == true)
+        {
+            CancelInvoke("SpawnBullet");
+        }
+
     }
 
     void SetAngle()
@@ -63,7 +102,7 @@ public class Shoot : MonoBehaviour
 
     void SpawnBullet()
     {
-        mainManager.PlaySound(5,0);
+        mainManager.PlaySound(5, 0);
         Instantiate(toSpawn, spawnPos.position, transform.rotation);
     }
 

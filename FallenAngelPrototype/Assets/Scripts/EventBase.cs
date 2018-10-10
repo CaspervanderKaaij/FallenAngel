@@ -70,7 +70,7 @@ public class EventBase : MonoBehaviour
         }
         npcs.AddRange(GameObject.FindGameObjectsWithTag("NPC"));
     }
-    public void SetDialogue(string[] newDia, float[] newTime, int[] talkers)
+    public void SetDialogue(List <string> newDia, List <float> newTime, List <int> talkers)
     {
         dia.NewDia(newDia, newTime, talkers);
     }
@@ -107,6 +107,7 @@ public class EventBase : MonoBehaviour
         {
             FindObjectOfType<Music>().normalMusic = newMusic;
             FindObjectOfType<Music>().ChangeMusic(newMusic, false);
+            
         }
     }
 
@@ -150,7 +151,7 @@ public class EventBase : MonoBehaviour
 [System.Serializable]
 public class DiaValues
 {
-    public string[] text;
-    public float[] times;
-    public int[] talker;
+    public List <string> text;
+    public List <float> times;
+    public List <int> talker;
 }

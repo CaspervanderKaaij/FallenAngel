@@ -24,7 +24,7 @@ public class Cam : MonoBehaviour
         mainManager = FindObjectOfType<MainManager>();
         transform.position = pivot.position + posRelativeToPivot;
         cam.fieldOfView = Vector3.Distance(player.position, followed.position) + 20;
-        cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30, 70);
+        cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 10, 70);
     }
 
     void Update()
@@ -38,8 +38,8 @@ public class Cam : MonoBehaviour
             // FindObjectOfType<Music>().ChangeMusic(0,true);
             //  hasChangedMusic = true;
             //  }
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, Vector3.Distance(player.position, followed.position) + 20, Time.deltaTime * 10);
-            cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 30, 70);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, Vector3.Distance(player.position, followed.position) + 10, Time.deltaTime * 10);
+            cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, 10, 70);
         }
         else
         {

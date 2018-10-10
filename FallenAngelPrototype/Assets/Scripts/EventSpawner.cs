@@ -16,6 +16,7 @@ public class EventSpawner : MonoBehaviour
             toSpawn = GetTimeAndPlace();
             Spawn();
         }
+        Debug.Log(GetTimeAndPlace());
     }
 
     int GetTimeAndPlace()
