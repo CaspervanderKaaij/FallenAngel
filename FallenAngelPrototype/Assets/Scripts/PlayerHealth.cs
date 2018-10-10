@@ -9,6 +9,11 @@ public float maxHealth = 100;
 public float curHealth = 100;
 public UIBar uiBar;
 public float regenSpeed = 10;
+MainManager mainManager;
+
+void Start() {
+	mainManager = FindObjectOfType<MainManager>();	
+}
 
 	
 	void Update () {
@@ -30,6 +35,7 @@ public float regenSpeed = 10;
 	public void Damage(int dmg){
 		curHealth -= dmg;
 		FindObjectOfType<Cam>().StartShake(0.2f,0.5f);
+		mainManager.PlaySound(17,0f);
 	}
 
 	void Die(){

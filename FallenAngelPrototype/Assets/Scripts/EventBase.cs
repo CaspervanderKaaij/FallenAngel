@@ -31,7 +31,7 @@ public class EventBase : MonoBehaviour
         UpdateStuff();
     }
 
-    void UpdateStuff()
+    public void UpdateStuff()
     {
         if (startCondition == StartCondition.NoEnemies)
         {
@@ -42,9 +42,9 @@ public class EventBase : MonoBehaviour
         }
     }
 
-    IEnumerator EventTimer()
+    public virtual IEnumerator EventTimer()
     {
-        SetDialogue(diaValues.text, diaValues.times,diaValues.talker);
+        SetDialogue(diaValues.text, diaValues.times, diaValues.talker);
         yield return new WaitForSeconds(0.01f);
         yield return new WaitForSeconds(3);
         SetNPCPath(0, 0, 10);
@@ -62,6 +62,7 @@ public class EventBase : MonoBehaviour
 
     public void StartStuff()
     {
+       // enemySpawner[0] = FindObjectOfType<EnemySpawner>().gameObject;
         dia = FindObjectOfType<Dialogue>();
         if (npcs.Count != 0)
         {
@@ -69,9 +70,9 @@ public class EventBase : MonoBehaviour
         }
         npcs.AddRange(GameObject.FindGameObjectsWithTag("NPC"));
     }
-    public void SetDialogue(string[] newDia, float[] newTime,int[] talkers)
+    public void SetDialogue(string[] newDia, float[] newTime, int[] talkers)
     {
-        dia.NewDia(newDia, newTime,talkers);
+        dia.NewDia(newDia, newTime, talkers);
     }
 
     public void SetNPCPath(int npc, int pathNumber, float speed)
@@ -109,31 +110,40 @@ public class EventBase : MonoBehaviour
         }
     }
 
-    public void SetDayTime(){
-        if(FindObjectOfType<TimeManager>() != null){
+    public void SetDayTime()
+    {
+        if (FindObjectOfType<TimeManager>() != null)
+        {
             TimeManager timeManager = FindObjectOfType<TimeManager>();
             switch (timeManager.timeOfDay)
             {
                 case TimeManager.TimeOfDay.Morning:
-                timeManager.timeOfDay = TimeManager.TimeOfDay.Afternoon;
-                break;
+                    timeManager.timeOfDay = TimeManager.TimeOfDay.Afternoon;
+                    break;
                 case TimeManager.TimeOfDay.Afternoon:
-                timeManager.timeOfDay = TimeManager.TimeOfDay.Evening;
-                break;
+                    timeManager.timeOfDay = TimeManager.TimeOfDay.Evening;
+                    break;
                 case TimeManager.TimeOfDay.Evening:
-                timeManager.timeOfDay = TimeManager.TimeOfDay.Night;
-                break;
+                    timeManager.timeOfDay = TimeManager.TimeOfDay.Night;
+                    break;
                 case TimeManager.TimeOfDay.Night:
-                timeManager.timeOfDay = TimeManager.TimeOfDay.Morning;
-                break;
+                    timeManager.timeOfDay = TimeManager.TimeOfDay.Morning;
+                    break;
             }
         }
     }
 
     public void UnlockBulletPoint(int number)
     {
-        FindObjectOfType<BulletPoints>().unlocked[number] = true;
-        FindObjectOfType<UIBPUnlock>().Unlock(FindObjectOfType<BulletPoints>().factText[number]);
+        if (FindObjectOfType<BulletPoints>().unlocked[number] == false)
+        {
+            FindObjectOfType<BulletPoints>().unlocked[number] = true;
+            if (FindObjectOfType<SaveManager>() != null)
+            {
+                FindObjectOfType<SaveManager>().bulletPoints[number] = true;
+            }
+            FindObjectOfType<UIBPUnlock>().Unlock(FindObjectOfType<BulletPoints>().factText[number]);
+        }
     }
 }
 

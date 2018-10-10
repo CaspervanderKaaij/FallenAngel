@@ -27,5 +27,6 @@ MainManager mainManager;
 	public void GetHit(int dmg){
 		curHealth -= dmg;
 		FindObjectOfType<Cam>().StartShake(0.2f,0.5f);
+		mainManager.PlaySound(9,0f);
 	}
 }

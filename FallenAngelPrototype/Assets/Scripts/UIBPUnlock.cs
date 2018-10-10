@@ -33,15 +33,12 @@ public class UIBPUnlock : MonoBehaviour
         else
         if (time < 4)
         {
-            rect.anchoredPosition = Vector3.MoveTowards(rect.anchoredPosition, new Vector3(0, 1080, 0), Time.unscaledDeltaTime * 5000);
+            rect.anchoredPosition =  new Vector3(0, 1080, 0);
             //	yield return new WaitForSeconds(2f);
-        }
-        else
-        if (rect.anchoredPosition == new Vector2(0, 1080))
-        {
             unlocking = false;
 			FindObjectOfType<NewBPUI>().visible = true;
         }
+       
     }
 
     public void Unlock(string text)

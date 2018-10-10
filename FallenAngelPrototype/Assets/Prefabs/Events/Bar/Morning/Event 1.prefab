@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1174745763966804}
+  m_IsPrefabAsset: 1
+--- !u!1 &1174745763966804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4225801882048732}
+  - component: {fileID: 114285428489600874}
+  m_Layer: 0
+  m_Name: Event 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4225801882048732
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174745763966804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114285428489600874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174745763966804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ecc79bcb233a642b97b6b1a74a07c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathPrefabs:
+  - {fileID: 1125321171893282, guid: f00ef15a4b0385740a0cfde437c36b04, type: 2}
+  newEvent: {fileID: 0}
+  diaValues:
+    text:
+    - 
+    - Morning.
+    - Good morning.
+    - You a traveler?
+    - That's right!
+    - You from far?
+    - This is the first town I stopped at in days.
+    - Here to refuel then?
+    - Yeah.
+    - So anything going on in the outside world?
+    - You don't have internet here?
+    - We do, I just don't.
+    - Right, well your in luck. I have a great story for you!
+    - Let's hear it then!
+    - Well, you might not believe it but..
+    - they say there's a ghost that follows people!
+    - A ghost you say?
+    - Sorry but I was talking about real stuff.
+    - This is very real though.
+    - Well if you say so.
+    - And that's not all!
+    - He follows people, and kills them when they're alone.
+    - ..
+    - That's it.
+    - Well you sure are an interesting person.
+    - Are you mocking me?
+    - So do you want to buy something?
+    - You're not taking me seriously at all!
+    - .. One water please.
+    - 
+    times:
+    - 0
+    - 2
+    - 6
+    - 10
+    - 12
+    - 16
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    - 19
+    talker: 00000000000000000000000000000000010000000200000000000000
+  enemySpawner:
+  - {fileID: 0}
+  startCondition: 0

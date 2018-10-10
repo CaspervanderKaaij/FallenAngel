@@ -23,6 +23,12 @@ public class BulletPoints : MonoBehaviour
 
     void Start()
     {
+        if(FindObjectOfType<SaveManager>() != null){
+            for (int i = 0; i < unlocked.Length; i++)
+            {
+                unlocked[i] = FindObjectOfType<SaveManager>().bulletPoints[i];
+            }
+        }
         mainManager = FindObjectOfType<MainManager>();
 		factObj.Clear();
 		for (int i = 0; i < factObjParent.childCount; i++)
