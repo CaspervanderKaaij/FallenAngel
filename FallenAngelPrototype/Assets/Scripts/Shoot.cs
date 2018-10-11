@@ -41,28 +41,32 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    void StopReflect(){
+    void StopReflect()
+    {
         reflecting = false;
     }
 
-    void SetCanReflect(){
+    void SetCanReflect()
+    {
         canReflect = true;
     }
 
     void ShootStuff()
     {
 
-        if(Input.GetButtonDown("Fire3") == true){
-            if(canReflect == true){
-            Instantiate(reflectParticle,transform.position,Quaternion.identity,transform);
-            mainManager.PlaySound(3,0);
-            mainManager.PlaySound(4,0.75f);
-            FindObjectOfType<Cam>().StartShake(0.3f,0.6f);
-            reflecting = true;
-            Invoke("StopReflect",0.3f);
-            Invoke("SetCanReflect",0.31f);
-            FindObjectOfType<PlayerHealth>().curHealth = 25;
-            canReflect = false;
+        if (Input.GetButtonDown("Fire3") == true)
+        {
+            if (canReflect == true)
+            {
+                Instantiate(reflectParticle, transform.position, Quaternion.identity, transform);
+                mainManager.PlaySound(3, 0);
+                mainManager.PlaySound(4, 0.75f);
+                FindObjectOfType<Cam>().StartShake(0.3f, 0.6f);
+                reflecting = true;
+                Invoke("StopReflect", 0.3f);
+                Invoke("SetCanReflect", 0.31f);
+                FindObjectOfType<PlayerHealth>().curHealth = 25;
+                canReflect = false;
             }
         }
         reflectCol.SetActive(false);
@@ -73,7 +77,7 @@ public class Shoot : MonoBehaviour
         SetAngle();
         if (Input.GetButtonDown("Fire1") == true)
         {
-            FindObjectOfType<Cam>().StartShake(0.1f,0.2f);
+            FindObjectOfType<Cam>().StartShake(0.1f, 0.2f);
             InvokeRepeating("SpawnBullet", 0, attackRate);
         }
         if (Input.GetButtonUp("Fire1") == true)
@@ -87,12 +91,14 @@ public class Shoot : MonoBehaviour
     {
         if (hasController == false)
         {
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-            {
-                transform.LookAt(hit.point);
-                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            }
+            Vector3 addV3 = Vector3.zero;
+            addV3.x = Input.mousePosition.x - (Screen.width / 2);
+            addV3.z = Input.mousePosition.y - (Screen.height / 2);
+            Vector3 playerpos = Camera.main.WorldToScreenPoint(player.position);
+            addV3.x += -(playerpos.x - (Screen.width / 2));
+            addV3.z += -(playerpos.y - (Screen.height / 2));
+            transform.LookAt(transform.position + addV3);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         }
         else if (Vector2.SqrMagnitude(new Vector2(Input.GetAxis("CamHor"), Input.GetAxis("CamVert"))) > 0)
         {
