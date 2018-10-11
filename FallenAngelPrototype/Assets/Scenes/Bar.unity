@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4194,27 +4194,27 @@ Prefab:
         type: 2}
       propertyPath: path.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 329285684}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 887921662}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 166952269}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 523790907}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 628713271}
     - target: {fileID: 1466082293270524, guid: 40d0e52bf033d134fb68ba69b521d2f0, type: 2}
       propertyPath: m_Name
       value: TestNPC(Destroy later)
@@ -11070,27 +11070,27 @@ Prefab:
         type: 2}
       propertyPath: path.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 329285684}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 887921662}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 166952269}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 523790907}
     - target: {fileID: 114914194143625760, guid: 40d0e52bf033d134fb68ba69b521d2f0,
         type: 2}
       propertyPath: path.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 628713271}
     - target: {fileID: 1466082293270524, guid: 40d0e52bf033d134fb68ba69b521d2f0, type: 2}
       propertyPath: m_Name
       value: TestNPC(Destroy later) (1)
