@@ -16,6 +16,7 @@ public class PlayerFollow : MonoBehaviour
     //[HideInInspector]
     public List<Transform> followables;
     public Transform followSelect;
+    float startY;
 
     void Start()
     {
@@ -25,6 +26,9 @@ public class PlayerFollow : MonoBehaviour
         cam = Camera.main.GetComponent<Cam>();
         mainManager = FindObjectOfType<MainManager>();
         StartNPC();
+        transform.position = followNPC.position;
+        transform.position += new Vector3(0,3,0);
+         startY = transform.position.y;
     }
 
     void StartNPC()
@@ -40,6 +44,10 @@ public class PlayerFollow : MonoBehaviour
                 }
             }
         }
+    }
+
+    void LateUpdate(){
+        transform.position = new Vector3(transform.position.x,startY,transform.position.z);
     }
 
     void Update()

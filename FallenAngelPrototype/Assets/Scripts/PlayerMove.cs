@@ -47,6 +47,8 @@ public class PlayerMove : MonoBehaviour
 
     void FinalMove()
     {
-        cc.Move(movV3 * Time.deltaTime);
+        if(Time.timeScale != 30){
+            cc.Move(movV3 * Time.deltaTime);
+        }
     }
 }

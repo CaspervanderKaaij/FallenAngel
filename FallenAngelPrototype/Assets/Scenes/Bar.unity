@@ -813,6 +813,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114743999127234564, guid: 25f69d7c703e337489b33a54f9abe0e5,
+        type: 2}
+      propertyPath: dialogue.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224402474428259964, guid: 25f69d7c703e337489b33a54f9abe0e5,
         type: 2}
       propertyPath: m_LocalPosition.z
@@ -863,6 +868,21 @@ Prefab:
     - target: {fileID: 4978351557173240, guid: 25f69d7c703e337489b33a54f9abe0e5, type: 2}
       propertyPath: m_LocalPosition.y
       value: 833.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114743999127234564, guid: 25f69d7c703e337489b33a54f9abe0e5,
+        type: 2}
+      propertyPath: dialogue.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114743999127234564, guid: 25f69d7c703e337489b33a54f9abe0e5,
+        type: 2}
+      propertyPath: dialogue.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114743999127234564, guid: 25f69d7c703e337489b33a54f9abe0e5,
+        type: 2}
+      propertyPath: dialogue.Array.data[3]
+      value: hfh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f69d7c703e337489b33a54f9abe0e5, type: 2}

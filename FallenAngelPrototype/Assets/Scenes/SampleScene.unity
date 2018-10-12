@@ -208,12 +208,6 @@ Transform:
   m_Father: {fileID: 763902356}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &209177780 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114891872366720664, guid: 25f69d7c703e337489b33a54f9abe0e5,
-    type: 2}
-  m_PrefabInternal: {fileID: 823261940}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &296945186
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +370,7 @@ Transform:
   - {fileID: 1950443732}
   - {fileID: 1976296493}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763902355
 GameObject:
@@ -407,7 +401,7 @@ Transform:
   - {fileID: 2056321007}
   - {fileID: 170076735}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &823261940
 Prefab:
@@ -468,6 +462,17 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224402474428259964, guid: 25f69d7c703e337489b33a54f9abe0e5,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114792261613697424, guid: 25f69d7c703e337489b33a54f9abe0e5,
+        type: 2}
+      propertyPath: eventPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1174745763966804, guid: 31445db6b52cbb64cb0dba02d9fea566,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f69d7c703e337489b33a54f9abe0e5, type: 2}
   m_IsPrefabAsset: 0
@@ -510,7 +515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983746689
 GameObject:
@@ -1069,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 1
-  fadeOut: {fileID: 209177780}
+  fadeOut: {fileID: 0}
 --- !u!65 &1937840381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1135,7 +1140,7 @@ Transform:
   m_LocalScale: {x: 4.6386, y: 4.6386, z: 4.6386}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1937840385
 Rigidbody:
