@@ -33,9 +33,12 @@ public class Dialogue : MonoBehaviour
         {
             curTime += Time.deltaTime;
         }
-        if(txt.text == ""){
+        if (txt.text == "")
+        {
             uiBack.SetActive(false);
-        } else {
+        }
+        else
+        {
             uiBack.SetActive(true);
         }
     }
@@ -50,6 +53,7 @@ public class Dialogue : MonoBehaviour
                 {
                     i--;
                     curText++;
+                    txt.text = "";
                 }
             }
             else
@@ -67,10 +71,25 @@ public class Dialogue : MonoBehaviour
             }
         }
         diaTalker.curTalker = talker[curText - 1];
-        txt.text = dialogue[curText - 1];
+        DisplayText();
     }
 
-    public void NewDia(List <string> newText,List <float> textTime,List <int> talkers){
+    void DisplayText()
+    {
+        //txt.text = dialogue[curText - 1];
+        int curShowing = txt.text.Length;
+        if (dialogue[curText - 1].Length - 1 > curShowing)
+        {
+            txt.text += dialogue[curText - 1][curShowing];
+        }
+        else
+        {
+            txt.text = dialogue[curText - 1];
+        }
+    }
+
+    public void NewDia(List<string> newText, List<float> textTime, List<int> talkers)
+    {
         curText = 1;
         curTime = 0;
         dialogue.Clear();

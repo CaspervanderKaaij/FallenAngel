@@ -31,8 +31,8 @@ public class BarMorningEvent : EventBase
     public override IEnumerator EventTimer()
     {
 
-        yield return new WaitForSeconds(46);
-        UnlockBulletPoint(1);
+        yield return new WaitForSeconds(54);
+        UnlockBulletPoint(6);
         SpawnNewEvent();
     }
 }
